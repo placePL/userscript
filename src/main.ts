@@ -35,7 +35,7 @@ async function main() {
     GM.addStyle(x);
 
     document.body.appendChild(createElementFromHTML(`
-    <div style="position: fixed; z-index: 9999999; top: 70px; left: 50%; right: 0; transform: translateX(-50%); text-align: center; width: 300px; background: #d7dadc; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px 0 rgba(0,0,0,0.3)">
+    <div style="position: fixed; z-index: 9999999; bottom: 70px; left: 50%; right: 0; transform: translateX(-50%); text-align: center; width: 300px; background: white; border: 2px solid black; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px 0 rgba(0,0,0,0.3)">
         <div style="">Bot PlacePL aktywny. 
         <a target="_blank" style="color: blue; text-decoration: underline" href="https://rplace.cubepotato.eu/web/current.png">Kliknij tutaj, aby zobaczyć obecny wzór obrazka</a></div>
     </div>`));

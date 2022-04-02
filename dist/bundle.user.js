@@ -641,12 +641,13 @@ SOFTWARE.
                     case 2:
                         data = _g.sent();
                         if (data.errors != undefined) {
-                            Toastify({
-                                text: 'Nie można jeszcze narysować',
-                                duration: 10000
-                            }).showToast();
+                            console.log('cannot draw yet');
                             return [2 /*return*/, (_a = data.errors[0].extensions) === null || _a === void 0 ? void 0 : _a.nextAvailablePixelTs];
                         }
+                        Toastify({
+                            text: "Narysowano piksel (".concat(x, ", ").concat(y, ") - kolor: ").concat(color),
+                            duration: 10000
+                        }).showToast();
                         return [2 /*return*/, (_f = (_e = (_d = (_c = (_b = data === null || data === void 0 ? void 0 : data.data) === null || _b === void 0 ? void 0 : _b.act) === null || _c === void 0 ? void 0 : _c.data) === null || _d === void 0 ? void 0 : _d[0]) === null || _e === void 0 ? void 0 : _e.data) === null || _f === void 0 ? void 0 : _f.nextAvailablePixelTimestamp];
                 }
             });
@@ -694,7 +695,7 @@ SOFTWARE.
                     case 2:
                         x = _b.sent();
                         GM.addStyle(x);
-                        document.body.appendChild(createElementFromHTML("\n    <div style=\"position: fixed; z-index: 9999999; top: 70px; left: 50%; right: 0; transform: translateX(-50%); text-align: center; width: 300px; background: #d7dadc; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px 0 rgba(0,0,0,0.3)\">\n        <div style=\"\">Bot PlacePL aktywny. \n        <a target=\"_blank\" style=\"color: blue; text-decoration: underline\" href=\"https://rplace.cubepotato.eu/web/current.png\">Kliknij tutaj, aby zobaczy\u0107 obecny wz\u00F3r obrazka</a></div>\n    </div>"));
+                        document.body.appendChild(createElementFromHTML("\n    <div style=\"position: fixed; z-index: 9999999; bottom: 70px; left: 50%; right: 0; transform: translateX(-50%); text-align: center; width: 300px; background: white; border: 2px solid black; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px 0 rgba(0,0,0,0.3)\">\n        <div style=\"\">Bot PlacePL aktywny. \n        <a target=\"_blank\" style=\"color: blue; text-decoration: underline\" href=\"https://rplace.cubepotato.eu/web/current.png\">Kliknij tutaj, aby zobaczy\u0107 obecny wz\u00F3r obrazka</a></div>\n    </div>"));
                         console.log('connecting...');
                         socket = io('https://rplace.cubepotato.eu', {
                             "transports": ["websocket"]

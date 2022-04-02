@@ -1,6 +1,6 @@
 import Toastify from 'toastify-js';
 
-export async function place(x, y, color) {
+export async function place(x: number, y: number, color: number) {
 	const response = await fetch('https://gql-realtime-2.reddit.com/query', {
 		method: 'POST',
 		body: JSON.stringify({
@@ -53,11 +53,14 @@ export async function place(x, y, color) {
 	});
 	const data = await response.json()
 	if (data.errors != undefined) {
-		Toastify({
-			text: 'Nie można jeszcze narysować',
-			duration: 10000
-		}).showToast();
+        console.log('cannot draw yet');
 		return data.errors[0].extensions?.nextAvailablePixelTs
 	}
+    
+    Toastify({
+        text: `Narysowano piksel (${x}, ${y}) - kolor: ${color}`,
+        duration: 10000
+    }).showToast();
+
 	return data?.data?.act?.data?.[0]?.data?.nextAvailablePixelTimestamp
 }
