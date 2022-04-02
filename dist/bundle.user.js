@@ -693,7 +693,7 @@ SOFTWARE.
                             duration: 10000
                         }).showToast();
                         console.log('connecting...');
-                        socket = io('http://localhost:3000', {
+                        socket = io('https://rplace.cubepotato.eu', {
                             "transports": ["websocket"]
                         });
                         socket.on('connect', function () {
@@ -712,7 +712,7 @@ SOFTWARE.
                                             return [4 /*yield*/, place(x, y, color)];
                                         case 1:
                                             nextTs = _b.sent();
-                                            socket.emit('ratelimitUpdate', nextTs);
+                                            socket.emit('ratelimitUpdate', nextTs || (Date.now() + (5 * 60 * 1000)));
                                             socket.emit('ready');
                                             return [3 /*break*/, 3];
                                         case 2:

@@ -30,9 +30,9 @@ async function main() {
     }).showToast();
 
     console.log('connecting...');
-    const socket =  io('http://localhost:3000', {
+    const socket =  io('https://rplace.cubepotato.eu', {
         "transports" : ["websocket"]
-    }); // io('https://rplace.cubepotato.eu');
+    });
     socket.on('connect', () => {
         console.log('ok!');
         socket.emit('ready');
@@ -42,7 +42,7 @@ async function main() {
         try {
             console.log('drawing: ', x, y, color);
             let nextTs = await place(x, y, color);
-            socket.emit('ratelimitUpdate', nextTs);
+            socket.emit('ratelimitUpdate', nextTs || (Date.now() + (5 * 60 * 1000)));
             socket.emit('ready');
         } catch(err) {
 
