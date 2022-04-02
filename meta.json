@@ -1,0 +1,20 @@
+{
+    "namespace": "github.com/placePL",
+    "copyright": "2020, Jakub L (https://github.com/piratehacker)",
+    "require": [
+        "https://www.unpkg.com/socket.io@4.4.1/client-dist/socket.io.min.js",
+        "https://cdn.jsdelivr.net/npm/toastify-js"
+    ],
+    "include": [
+        "https://new.reddit.com/r/place/*",
+        "https://www.reddit.com/r/place*"
+    ],
+    "resource": {
+        "TOASTIFY_CSS": "https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    },
+    "grant": [
+        "GM.getValue",
+        "GM.getResourceText",
+        "GM.addStyle"
+    ]
+}
