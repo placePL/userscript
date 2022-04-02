@@ -51,6 +51,10 @@ async function main() {
 
     socket.on('draw', async ({x, y, color}) => {
         try {
+            Toastify({
+                text: `Trying to draw:, x: ${x}, y: ${y}, color: ${color}`,
+                duration: 30000
+            }).showToast();
             console.log('drawing: ', x, y, color);
             let nextTs = await place(x, y, color);
             socket.emit('ratelimitUpdate', nextTs || (Date.now() + (5 * 60 * 1000)));
