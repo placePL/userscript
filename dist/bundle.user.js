@@ -600,7 +600,7 @@ SOFTWARE.
       });
     })(toastify);
 
-    var Toastify = toastify.exports;
+    var Toastify$1 = toastify.exports;
 
     function place(x, y, color) {
         var _a, _b, _c, _d, _e, _f;
@@ -641,10 +641,14 @@ SOFTWARE.
                     case 2:
                         data = _g.sent();
                         if (data.errors != undefined) {
+                            Toastify$1({
+                                text: 'Cannot draw yet',
+                                duration: 10000
+                            }).showToast();
                             console.log('cannot draw yet');
                             return [2 /*return*/, (_a = data.errors[0].extensions) === null || _a === void 0 ? void 0 : _a.nextAvailablePixelTs];
                         }
-                        Toastify({
+                        Toastify$1({
                             text: "Narysowano piksel (".concat(x, ", ").concat(y, ") - kolor: ").concat(color),
                             duration: 10000
                         }).showToast();
@@ -712,6 +716,10 @@ SOFTWARE.
                                     switch (_b.label) {
                                         case 0:
                                             _b.trys.push([0, 2, , 3]);
+                                            Toastify({
+                                                text: "Trying to drawing:, x: ".concat(x, ", y: ").concat(y, ", color: ").concat(color),
+                                                duration: 10000
+                                            }).showToast();
                                             console.log('drawing: ', x, y, color);
                                             return [4 /*yield*/, place(x, y, color)];
                                         case 1:

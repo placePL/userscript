@@ -53,6 +53,10 @@ export async function place(x: number, y: number, color: number) {
 	});
 	const data = await response.json()
 	if (data.errors != undefined) {
+		Toastify({
+			text: 'Cannot draw yet',
+			duration: 10000
+		}).showToast();
         console.log('cannot draw yet');
 		return data.errors[0].extensions?.nextAvailablePixelTs
 	}
