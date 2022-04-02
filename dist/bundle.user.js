@@ -600,7 +600,7 @@ SOFTWARE.
       });
     })(toastify);
 
-    var Toastify$1 = toastify.exports;
+    var Toastify = toastify.exports;
 
     function place(x, y, color) {
         var _a, _b, _c, _d, _e, _f;
@@ -641,7 +641,7 @@ SOFTWARE.
                     case 2:
                         data = _g.sent();
                         if (data.errors != undefined) {
-                            Toastify$1({
+                            Toastify({
                                 text: 'Nie można jeszcze narysować',
                                 duration: 10000
                             }).showToast();
@@ -673,6 +673,12 @@ SOFTWARE.
             });
         });
     }
+    function createElementFromHTML(htmlString) {
+        var div = document.createElement('div');
+        div.innerHTML = htmlString.trim();
+        // Change this to div.childNodes to support multiple top-level nodes.
+        return div.firstChild;
+    }
     function main() {
         return __awaiter(this, void 0, void 0, function () {
             var _a, x, socket;
@@ -688,10 +694,7 @@ SOFTWARE.
                     case 2:
                         x = _b.sent();
                         GM.addStyle(x);
-                        Toastify({
-                            text: 'Bot PlacePL aktywny!',
-                            duration: 10000
-                        }).showToast();
+                        document.body.appendChild(createElementFromHTML("\n    <div style=\"position: fixed; z-index: 9999999; top: 70px; left: 50%; right: 0; transform: translateX(-50%); text-align: center; width: 300px; background: #d7dadc; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px 0 rgba(0,0,0,0.3)\">\n        <div style=\"\">Bot PlacePL aktywny. \n        <a target=\"_blank\" style=\"color: blue; text-decoration: underline\" href=\"https://rplace.cubepotato.eu/web/current.png\">Kliknij tutaj, aby zobaczy\u0107 obecny wz\u00F3r obrazka</a></div>\n    </div>"));
                         console.log('connecting...');
                         socket = io('https://rplace.cubepotato.eu', {
                             "transports": ["websocket"]

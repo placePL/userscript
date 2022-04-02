@@ -20,14 +20,25 @@ async function getAccessToken() {
 	return responseText.split('\"accessToken\":\"')[1].split('"')[0];
 }
 
+function createElementFromHTML(htmlString) {
+    var div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+  
+    // Change this to div.childNodes to support multiple top-level nodes.
+    return div.firstChild;
+  }
+  
+
 async function main() {
     window.accessToken = await getAccessToken();
     const x = await GM.getResourceText('TOASTIFY_CSS');
     GM.addStyle(x);
-    Toastify({
-        text: 'Bot PlacePL aktywny!',
-        duration: 10000
-    }).showToast();
+
+    document.body.appendChild(createElementFromHTML(`
+    <div style="position: fixed; z-index: 9999999; top: 70px; left: 50%; right: 0; transform: translateX(-50%); text-align: center; width: 300px; background: #d7dadc; padding: 20px; border-radius: 20px; box-shadow: 0 0 20px 0 rgba(0,0,0,0.3)">
+        <div style="">Bot PlacePL aktywny. 
+        <a target="_blank" style="color: blue; text-decoration: underline" href="https://rplace.cubepotato.eu/web/current.png">Kliknij tutaj, aby zobaczyć obecny wzór obrazka</a></div>
+    </div>`));
 
     console.log('connecting...');
     const socket =  io('https://rplace.cubepotato.eu', {
