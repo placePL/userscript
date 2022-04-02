@@ -3,7 +3,7 @@
 ## Jak to działa?
 Bot automatycznie stawia potrzebne piksele na canvasie - jednocześnie broni terytorium i rysuje nowe, ustalone przez adminów obrazki. Nie trzeba nic robić.
 
-Jeśli chcesz zobaczyć obecny wzór - po zainstalowaniu kliknij w link na komunikacie na dole.
+Jeśli chcesz zobaczyć obecny wzór - [kliknij tutaj](https://rplace.cubepotato.eu/web/current.png)
 
 ## Instalacja
 1. Zainstaluj rozszerzenie [Tampermonkey](https://www.tampermonkey.net)
