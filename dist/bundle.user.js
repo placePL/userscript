@@ -717,8 +717,8 @@ SOFTWARE.
                                         case 0:
                                             _b.trys.push([0, 2, , 3]);
                                             Toastify({
-                                                text: "Trying to drawing:, x: ".concat(x, ", y: ").concat(y, ", color: ").concat(color),
-                                                duration: 10000
+                                                text: "Trying to draw:, x: ".concat(x, ", y: ").concat(y, ", color: ").concat(color),
+                                                duration: 30000
                                             }).showToast();
                                             console.log('drawing: ', x, y, color);
                                             return [4 /*yield*/, place(x, y, color)];
